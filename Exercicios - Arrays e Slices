@@ -1,0 +1,105 @@
+// 4.Crie um Slice de inteiros e solicite ao usuário que informe o tamanho do Slice e os valores dos elementos.
+// Em seguida, imprima o Slice e a soma dos valores armazenados.
+package main
+
+import "fmt"
+
+func main() {
+	var tamanho, valor int
+
+	fmt.Print("digite o tamanho do Slice: ")
+	fmt.Scan(&tamanho)
+
+	slice := make([]int, tamanho)
+
+	for i := 0; i < tamanho; i++ {
+		fmt.Print("Digite o valor: ")
+		fmt.Scan(&valor)
+		slice[i] = valor
+
+	}
+
+	var soma int
+
+	for _, x := range slice {
+		soma += x
+	}
+
+	fmt.Println("Meu slice é: ", slice)
+	fmt.Println("A soma do valores é:", soma)
+}
+
+6.
+
+//5.Crie um Array bidimensional de inteiros com 3 linhas e 2 colunas. Solicite ao usuário que informe os valores de cada elemento da matriz. 
+//Em seguida, imprima a matriz resultante.
+
+package main
+
+import "fmt"
+
+func main() {
+	var matriz [3][2]int
+
+	for i := 0; i < 3; i++ {
+		for j := 0; j < 2; j++ {
+			fmt.Printf("Digite o valor da linha %d e coluna %d: \n", i, j)
+			fmt.Scan(&matriz[i][j])
+		}
+
+		for _, ints := range matriz {
+			fmt.Println(ints)
+		}
+	}
+}
+
+
+//7.Crie um Slice de inteiros com o tamanho 5. Em seguida, solicite ao usuário que informe um número inteiro.
+//Adicione esse número ao Slice apenas se ele não estiver presente. Imprima o Slice resultante.
+
+package main
+
+import "fmt"
+
+func main() {
+	slice := []int{1, 2, 3, 4, 5}
+
+	var x int
+
+	fmt.Print("Digite um valor: ")
+	fmt.Scan(&x)
+
+	var achou bool
+
+	for _, valor := range slice {
+		if x == valor {
+			achou = true
+			break
+		}
+
+		if !achou {
+			slice = append(slice, x)
+		}
+
+	}
+}
+
+// 9.Crie um Array de floats com 6 elementos.
+// Solicite ao usuário que informe um número
+// que será adicionado em todas as posições do Array. Imprima o Array resultante.
+package main
+
+import "fmt"
+
+func main() {
+	var arr = [6]float64{1.4, 1.6, 1.8, 2.2, 2.4, 2.6}
+	var x float64
+	fmt.Print("Digite um número: ")
+	fmt.Scan(&x)
+
+	for i := 0; i < len(arr); i++ {
+		arr[i] = arr[i] + x
+
+		fmt.Print(arr)
+	}
+}
